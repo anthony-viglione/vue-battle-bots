@@ -25,12 +25,24 @@ export default {
   name: 'app',
   data() {
     return{
-    showCreate:true
+    showCreate:true,
+    name:'',
+    attack:0,
+    health:0,
+    allBots:[]
     }
   },
   methods:{
     toggleView: function() {
       this.showCreate = !this.showCreate
+    },
+    addBot: function () {
+      const newBot = { name: this.name, attack:this. attack, health:this. health }
+      this.allBots.push(newBot)
+      this.name = '';
+      this.attack = 0;
+      this.health = 0;
+      this.toggleView();
     }
   },
   components: {

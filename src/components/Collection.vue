@@ -16,7 +16,8 @@
 
 <script>
 export default {
-    name: 'Collection'
+    name: 'Collection',
+    props:['botObj']
 }
 </script>
 
