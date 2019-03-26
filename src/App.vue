@@ -1,11 +1,19 @@
 <template>
   <div id="app">
     <div id="top">
-      <button>CREATE</button>
+      <button @click='toggleView'>CREATE</button>
       <section>BATTLE BOTS</section>
-      <button>COLLECTION</button>
-      <hr>
+      <button @click="toggleView">COLLECTION</button>
     </div>
+
+    <section v-if="showCreate">
+      <create/>
+    </section>
+
+    <section v-else>
+      <collection/>
+    </section>
+
   </div>
 </template>
 
@@ -16,7 +24,14 @@ import Collection from './components/Collection';
 export default {
   name: 'app',
   data() {
-
+    return{
+    showCreate:true
+    }
+  },
+  methods:{
+    toggleView: function() {
+      this.showCreate = !this.showCreate
+    }
   },
   components: {
     Create,
